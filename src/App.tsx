@@ -10,7 +10,7 @@ function App() {
 
   const calculateDaysLeft = () => {
     const firstDate: any = Date.now();
-    const secondDate: any = new Date(2023, 5, 6, 0, 0, 0);
+    const secondDate: any = new Date("May 6, 2023");
 
     let seconds = Math.floor((secondDate - firstDate) / 1000);
     let minutes = Math.floor(seconds / 60);
@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   return (
-    <div className="h-screen flex ">
+    <div className="h-screen flex flex-col">
       <div className="text-center m-auto">
         <p className="text-4xl font-bold">
           До конца военной практики осталось:
@@ -37,6 +37,18 @@ function App() {
         <p className="text-lg text-semibold">
           {timeLeft.days} дней {timeLeft.hours} часов {timeLeft.minutes} минут{" "}
           {timeLeft.seconds} секунд
+        </p>
+      </div>
+      <div className="mx-auto">
+        <p className="text-md">
+          {" "}
+          <a
+            href="https://github.com/olimeme/days-until-the-end-of-military-service"
+            target="_blank"
+            className="hover:text-red-500 hover:ease-in-out duration-300"
+          >
+            Сделано с ненавистью ❤️
+          </a>{" "}
         </p>
       </div>
     </div>
