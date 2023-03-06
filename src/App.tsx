@@ -11,6 +11,7 @@ function App() {
     minutes: 0,
     seconds: 0,
   });
+  const [hover, setHover] = useState<boolean>(false);
 
   const [endOfDayTimeLeft, setEndOfDayTimeLeft] = useState<TimeClock>({
     hours: 0,
@@ -75,16 +76,18 @@ function App() {
         dayEnded={dayEnded}
       />
       <div className="mx-auto">
-        <p className="text-md">
-          {" "}
-          <a
-            href="https://github.com/olimeme/days-until-the-end-of-military-service"
-            target="_blank"
-            className="hover:text-red-500 hover:ease-in-out duration-300"
-          >
-            Сделано с ненавистью ❤️
-          </a>{" "}
-        </p>
+        {" "}
+        <a
+          href="https://github.com/olimeme/days-until-the-end-of-military-service"
+          target="_blank"
+          className="text-md hover:text-red-500 hover:ease-in-out duration-300"
+          onMouseOver={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          Сделано с{" "}
+          <span className={hover ? "hidden" : "inline"}>любовью ❤️</span>{" "}
+          <span className={hover ? "inline" : "hidden"}>ненавистью.</span>
+        </a>{" "}
       </div>
     </div>
   );
