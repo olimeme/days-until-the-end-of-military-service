@@ -11,14 +11,12 @@ function App() {
     minutes: 0,
     seconds: 0,
   });
-  const [hover, setHover] = useState<boolean>(false);
-
   const [endOfDayTimeLeft, setEndOfDayTimeLeft] = useState<TimeClock>({
     hours: 0,
     minutes: 0,
     seconds: 0,
   });
-
+  const [message, setMessage] = useState<string>("");
   const [dayEnded, setDayEnded] = useState<boolean>(false);
 
   const calculateDaysLeft = () => {
@@ -42,7 +40,16 @@ function App() {
     const currentMonth = firstDate.getMonth();
     const secondDate: any = new Date(2023, currentMonth, currentDay, 17, 0, 0);
 
+    if (
+      [6, 7].findIndex((dayOfWeek) => dayOfWeek === firstDate.getDay()) !== -1
+    ) {
+      setMessage("Сегодня выходной!");
+      setDayEnded(true);
+      return;
+    }
+
     if (secondDate < firstDate) {
+      setMessage("Военный день окончен!");
       setDayEnded(true);
       return;
     }
@@ -74,6 +81,7 @@ function App() {
       <HoursLeftUntilEndOfTheDay
         timeLeft={endOfDayTimeLeft}
         dayEnded={dayEnded}
+        message={message}
       />
       <div className="mx-auto">
         {" "}
