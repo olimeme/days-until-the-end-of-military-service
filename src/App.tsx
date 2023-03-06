@@ -81,12 +81,8 @@ function App() {
           href="https://github.com/olimeme/days-until-the-end-of-military-service"
           target="_blank"
           className="text-md hover:text-red-500 hover:ease-in-out duration-300"
-          onMouseOver={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
         >
-          Сделано с{" "}
-          <span className={hover ? "hidden" : "inline"}>любовью ❤️</span>{" "}
-          <span className={hover ? "inline" : "hidden"}>ненавистью.</span>
+          Сделано с любовью ❤️
         </a>{" "}
       </div>
     </div>
