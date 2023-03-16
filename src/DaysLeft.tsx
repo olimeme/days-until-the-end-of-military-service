@@ -1,4 +1,5 @@
 import React from "react";
+import ProgressBar from "./components/ProgressBar";
 import { Time } from "./interfaces/Time";
 
 interface Props {

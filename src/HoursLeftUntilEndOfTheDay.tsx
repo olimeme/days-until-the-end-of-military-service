@@ -1,4 +1,3 @@
-import React from "react";
 import { TimeClock } from "./interfaces/TimeClock";
 interface Props {
   timeLeft: TimeClock;
